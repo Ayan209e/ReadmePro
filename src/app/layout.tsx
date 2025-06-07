@@ -1,11 +1,8 @@
+"use client";
 import { ReactNode } from "react";
-import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "ReadmePro",
-  description: "A tool to generate README files for your projects",
-};
+import { Navbar } from "@/components";
 
 export default function RootLayout({
   children,
@@ -14,7 +11,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <SessionProvider>
+          <div className="min-h-screen w-full bg-white">
+            <Navbar />
+            {children}
+          </div>
+        </SessionProvider>
+      </body>
     </html>
   );
 }

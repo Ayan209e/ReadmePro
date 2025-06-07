@@ -1,7 +1,12 @@
-export default function Home() {
+"use client";
+import { Hero } from "@/components";
+
+const Home = () => {
   return (
-    <main className="h-screen w-full flex items-center justify-center bg-blue-300">
-      <h1 className="text-3xl font-bold">ReadmePro</h1>
+    <main className="min-h-screen w-full bg-white">
+      <Hero />
     </main>
   );
-}
+};
+
+export default Home;
