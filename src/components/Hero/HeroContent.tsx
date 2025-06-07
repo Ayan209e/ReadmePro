@@ -1,11 +1,10 @@
+"use client";
 import React from "react";
-import { ArrowIcon, Button } from "../../../ui";
+import { ArrowIcon, Button, Toast } from "../../../ui";
+import { useSignIn } from "../../../core/hooks";
 
 export const HeroContent = () => {
-  const handleStartNow = () => {
-    // Logic to handle "Start Now" button click
-    console.log("Start Now clicked");
-  };
+  const { isLoading, error, signInWithGitHub } = useSignIn();
 
   return (
     <div className="lg:col-span-6">
@@ -21,11 +20,14 @@ export const HeroContent = () => {
       <div className="mt-9">
         <Button
           className="px-8 group w-full h-16 text-2xl"
-          onClick={handleStartNow}
+          onClick={signInWithGitHub}
+          disabled={isLoading}
         >
-          Start Now
-          <ArrowIcon />
+          {isLoading ? "Connecting..." : "Start Now"}
+          {!isLoading && <ArrowIcon />}
         </Button>
+
+        {error && <Toast message={error} />}
 
         <p className="mt-4 text-sm text-gray-500 text-center">
           Harness the power of AI to create professional docs for your GitHub
