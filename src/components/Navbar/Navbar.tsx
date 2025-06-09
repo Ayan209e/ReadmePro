@@ -36,7 +36,6 @@ export const Navbar = () => {
           />
           <div className="text-primary text-xl font-bold">ReadmePro</div>
         </Link>
-        {buttonText}
         <Button
           disabled={isLoading}
           onClick={onAuthAction}
