@@ -1,5 +1,6 @@
 "use client";
-import { Features, Hero, TryNow } from "@/components";
+import { Faq, Features, Hero, TryNow } from "@/components";
+import { FutureScope } from "@/components/FutureScope/FutureScope";
 
 const Home = () => {
   return (
@@ -7,6 +8,8 @@ const Home = () => {
       <Hero />
       <Features />
       <TryNow />
+      <FutureScope />
+      <Faq />
     </main>
   );
 };
