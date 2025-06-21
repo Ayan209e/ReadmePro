@@ -4,11 +4,12 @@ import { CaretIcon } from "../Icons";
 import { cn } from "../../core";
 
 interface AccordionProps {
-  title: string;
   description: JSX.Element;
+  index: number;
+  title: string;
 }
 
-export const Accordion = ({ title, description }: AccordionProps) => {
+export const Accordion = ({ description, index, title }: AccordionProps) => {
   const [showDescription, setShowDescription] = useState(false);
 
   return (
@@ -19,9 +20,9 @@ export const Accordion = ({ title, description }: AccordionProps) => {
         onClick={() => setShowDescription(!showDescription)}
       >
         <div className="flex items-center justify-between w-full">
-          <div className="flex items-center text-lg font-medium">
+          <div className="flex items-center text-lg font-bold">
             <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
-              <span className="text-blue-500 text-sm font-bold">1</span>
+              <span className="text-blue-500 text-sm">{index}</span>
             </div>
             <span className="text-gray-900">{title}</span>
           </div>
@@ -37,7 +38,7 @@ export const Accordion = ({ title, description }: AccordionProps) => {
       </button>
       <div
         className={cn(
-          "overflow-hidden transition-all duration-300 ease-in-out opa",
+          "overflow-hidden transition-all duration-300 ease-in-out",
           showDescription ? "max-h-full opacity-100" : "max-h-0 opacity-0",
         )}
       >

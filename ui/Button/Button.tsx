@@ -4,7 +4,8 @@ import { cn } from "../../core";
 interface ButtonProps extends PropsWithChildren {
   className?: string;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
+  type?: "button" | "submit";
 }
 
 export const Button = ({
@@ -12,6 +13,7 @@ export const Button = ({
   className,
   disabled = false,
   onClick,
+  type = "button",
 }: ButtonProps) => {
   return (
     <button
@@ -21,6 +23,7 @@ export const Button = ({
       )}
       disabled={disabled}
       onClick={onClick}
+      type={type}
     >
       {children}
     </button>
