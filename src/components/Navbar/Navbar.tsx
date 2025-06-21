@@ -25,7 +25,7 @@ export const Navbar = () => {
   }
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#e2e8f0]">
+    <div className="px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#e2e8f0] rounded-b-[48px] shadow-gray-200 shadow-lg">
       <div className="max-w-7xl mx-auto flex justify-between items-center gap-4 h-16 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image

@@ -2,7 +2,7 @@
 import { ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-import { Navbar } from "@/components";
+import { Footer, Navbar } from "@/components";
 
 export default function RootLayout({
   children,
@@ -25,6 +25,7 @@ export default function RootLayout({
           <div className="min-h-screen w-full bg-white">
             <Navbar />
             {children}
+            <Footer />
           </div>
         </SessionProvider>
       </body>
