@@ -10,20 +10,21 @@ export const useSignIn = () => {
 
   const signInWithGitHub = async () => {
     if (session) {
-      router.push("/profile");
+      router.push("/dashboard");
     } else {
       try {
         setIsLoading(true);
         setError(null);
 
         // Initiate GitHub authentication flow
-        await signIn("github", { callbackUrl: "/profile" });
+        await signIn("github", { callbackUrl: "/dashboard" });
       } catch (err) {
         setError("Authentication failed. Please try again.");
         console.error("Auth error:", err);
       }
     }
   };
+
   return {
     isLoading,
     error,

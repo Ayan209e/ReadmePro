@@ -4,3 +4,4 @@ export * from "./CaretIcon";
 export * from "./ErrorIcon";
 export * from "./FlashIcon";
 export * from "./GithubIcon";
+export * from "./ExitIcon";

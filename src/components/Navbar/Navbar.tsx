@@ -1,9 +1,9 @@
-import Image from "next/image";
 import React from "react";
-import { Button, Toast } from "../../../ui";
+import Link from "next/link";
+import Image from "next/image";
+import { Button, ExitIcon, Toast } from "../../../ui";
 import { signOut, useSession } from "next-auth/react";
 import { useSignIn } from "../../../core/hooks";
-import Link from "next/link";
 
 export const Navbar = () => {
   const { isLoading, error, signInWithGitHub } = useSignIn();
@@ -11,17 +11,24 @@ export const Navbar = () => {
 
   const onAuthAction = () => {
     if (session) {
-      signOut();
+      signOut({ callbackUrl: "/" });
     } else {
       signInWithGitHub();
     }
   };
 
-  let buttonText: string;
+  let buttonText: string | React.ReactNode;
   if (isLoading) {
     buttonText = "Signing in...";
   } else {
-    buttonText = session ? "Sign Out" : "Get Started";
+    buttonText = session ? (
+      <div className="flex items-center gap-1">
+        <ExitIcon />
+        Sign Out
+      </div>
+    ) : (
+      "Get Started"
+    );
   }
 
   return (
