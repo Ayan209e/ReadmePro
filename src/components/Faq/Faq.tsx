@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const Faq = () => {
   return (
-    <div id="faq" className="bg-white py-20">
+    <div id="faq" className="bg-gray-50 py-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold">
